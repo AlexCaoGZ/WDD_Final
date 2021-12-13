@@ -11,6 +11,7 @@
     <h1>SET Pizza Shop</h1>
     <form id="form1" runat="server">
         <div>
+            <asp:Label runat="server" ID="thankMsg"></asp:Label>
         </div>
     </form>
 </body>
