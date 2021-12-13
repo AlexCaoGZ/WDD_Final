@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" type="text/css" href="myStyleSheet.css" />
     <title></title>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
@@ -11,7 +12,13 @@
     <h1>SET Pizza Shop</h1>
     <form id="form1" runat="server">
         <div>
-            <asp:Label runat="server" ID="thankMsg"></asp:Label>
+            <table>
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="thankMsg"></asp:Label>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>
