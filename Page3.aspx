@@ -11,6 +11,34 @@
     <h1>SET Pizza Shop</h1>
     <form id="form1" runat="server">
         <div>
+            <table>
+                <tr>
+                    <td>Ciao, <asp:Label ID="userName_Label" runat="server"></asp:Label>.</td>
+                    <td>Here is the summary of your pizza.</td>
+                </tr>
+                <tr>
+                    <td>
+                        Pizza price: 
+                    </td>
+                    <td>
+                        <asp:label id="price" runat="server">1919</asp:label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Your Pizza will come with:
+                    </td>
+                    <td>
+                        <asp:Label ID="toppings" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button runat="server" ID="okBtn" Text="OK" OnClick="okBtn_Clicked" />
+                        <asp:Button runat="server" ID="cancelBtn" Text="Cancel" OnClick="cancelBtn_Clicked" />
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>

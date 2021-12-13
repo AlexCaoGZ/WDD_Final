@@ -10,19 +10,18 @@ namespace WDD_Final
 {
     public partial class Page2 : System.Web.UI.Page
     {
+        string userName = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string userName = Session["userName"].ToString();
-            string userName = null;
-            try
-            {
-                userName = Session["userName"].ToString();
-            }
-            catch
-            {
-                userName = "1919";
-            }
+            userName = Session["userName"].ToString();
             userName_Label.Text = userName;
+            Session.Add("userName", userName);
+        }
+
+        protected void pageTransfer(object sender, EventArgs e)
+        {
+            Session.Add("toppingStatus", HidTagId.Value);
+            Server.Transfer("Page3.aspx");
         }
 
         [WebMethod]
@@ -32,6 +31,7 @@ namespace WDD_Final
             if (checked1 == "1") { isChecked = true; }
             else { isChecked = false; }
             double price = Convert.ToDouble(price1);
+            price = price / 1.13;
             switch (topping)
             {
                 case "Mushroom":
@@ -47,7 +47,7 @@ namespace WDD_Final
                     else price--;
                     break;
                 case "Pepperoni":
-                    if (isChecked) price = price +1.5;
+                    if (isChecked) price = price + 1.5;
                     else price = price - 1.5;
                     break;
                 case "Double Cheese":
@@ -55,8 +55,9 @@ namespace WDD_Final
                     else price = price - 2.25;
                     break;
             }
-            string ddd= "[{\"price\":" + price + "}]"; 
-            return "[{\"price\":"+price+"}]";
+            price = price * 1.13;
+            string returnStr = "[{\"price\":" + Convert.ToDouble(price).ToString("0.00") + "}]";
+            return returnStr;
         }
     }
 }

@@ -26,6 +26,21 @@
                 }
             })
         }
+
+        function okBtn_Clicked(value) {
+            var object = document.getElementsByName("topping");
+            var toppings = "";
+            for (i = 0; i < object.length; i++) {
+                toppings = toppings + "|";
+                if (object[i].checked == true) {
+                    toppings = toppings + object[i].value;
+                }
+            }
+            if (value == "OK") {
+                document.getElementById("HidTagId").value = document.getElementById("price").innerHTML + "|" + toppings;
+            }
+            document.getElementById("NextPage").click();
+        }
     </script>
 <body>
     <h1>SET Pizza Shop</h1>
@@ -34,18 +49,19 @@
             <table>
                 <tr>
                     <td>Ciao, <asp:Label ID="userName_Label" runat="server"></asp:Label>.</td>
+                    <td>In SET Pizza Shop, we can only offer one(1) larger pizza. And the pizze comes with sauce and cheese.</td>
                 </tr>
                 <tr>
                     <td>
-                        Pizza price: 
+                        Pizza price (Taxs included): 
                     </td>
                     <td>
-                        <label id="price">10</label>
+                        <label id="price">11.3</label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Opintion:
+                        Opintional toppings:
                     </td>
                     <td>
                         <input name="topping" type="checkbox" value="Mushroom" onclick="topping_Changed(this.value,this.checked)"/>Mushroom
@@ -53,6 +69,15 @@
                         <input name="topping" type="checkbox" value="Green Peppers" onclick="topping_Changed(this.value,this.checked)"/>Green Peppers
                         <input name="topping" type="checkbox" value="Pepperoni" onclick="topping_Changed(this.value,this.checked)"/>Pepperoni
                         <input name="topping" type="checkbox" value="Double Cheese" onclick="topping_Changed(this.value,this.checked)"/>Double Cheese
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="okBtn" value="OK" type="button" onclick="okBtn_Clicked(this.value)"/>
+                        <asp:HiddenField ID="HidTagId" runat="server" Value="1"/>     
+                            <div style="display:none;">    
+                                <asp:Button ID="NextPage" Width="0" runat="server" Text="" OnClick="pageTransfer" />     
+                            </div>
                     </td>
                 </tr>
             </table>
