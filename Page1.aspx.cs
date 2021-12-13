@@ -13,5 +13,14 @@ namespace WDD_Final
         {
 
         }
+
+        protected void submitButton_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                Session.Add("userName", userName_TB.Text);
+                Server.Transfer("Page2.aspx");
+            }
+        }
     }
 }
