@@ -15,7 +15,7 @@ namespace WDD_Final
             string orderStatus = Session["orderStatus"].ToString();
             if (orderStatus == "0")
             {
-                thankMsg.Text = "Order cancelled successfully. Thank you for trying our website, " + userName + ".";
+                thankMsg.Text = "Order <b>cancelled</b> successfully. Thank you for trying our website, " + userName + ".";
             }
             else
             {

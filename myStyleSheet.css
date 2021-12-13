@@ -3,6 +3,7 @@
 }
 h1 {
     background-color: orange;
+    font-family: Arial;
     text-align: center;
 }
 table {
@@ -11,4 +12,8 @@ table {
 }
 td {
     text-align: left;
+    font-family:Arial;
+}
+tr {
+    font-family: Arial;
 }
