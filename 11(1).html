@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="userName"></div>
+<div id="pizza_prices"></div>
+<div id="data"></div>
+<div id="news"></div>
+<div></div>
+
+
+</body>
+<script>
+    var userName = '<%=session.getAttribute("userName")%>';
+    var pizza_prices = '<%=session.getAttribute("pizza_prices")%>';
+    var Pizza_toppings = '<%=session.getAttribute("Pizza_toppings")%>';
+    var many_things = Pizza_toppings.split(',');
+    document.getElementById("userName").innerHTML = (userName);
+    document.getElementById("pizza_prices").innerHTML = (pizza_prices);
+    for (var i = 0; i < many_things.length; i++) {
+        document.getElementById("data").innerHTML = (many_things[i] + "<br>");
+        document.getElementById("news").innerHTML = "<form action=\"http://www.xxx.com\" method=\"get\">\n" +
+            "            <div>\n" +
+            "                <!-- Drop down box -->\n" +
+            "                <select>\n" +
+            "                    <option>0</option>\n" +
+            "                    <option>1</option>\n" +
+            "                </select>\n" +
+            "            </div>\n" +
+            "    <a style=\" text-decoration: none;\" href=\"#\">0</a><br>\n" +
+            "        <a style=\" text-decoration: none;\" href=\"#\">1</a>\n" +
+            "        </form>";
+    }
+</script>
+</html>
